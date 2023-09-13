@@ -1,0 +1,13 @@
+.group-text-field {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+
+.form-button {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
