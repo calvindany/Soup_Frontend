@@ -31,16 +31,20 @@ export default function ResetPassword() {
           }}
         >
           <div className="form-typography text-primary-color">
-            <Typography variant="h4">Reset Password</Typography>
-            <Typography variant="p" className="normal-text">
-              Send OTP code to your email address
-            </Typography>
+            <Typography variant="h4">Create Password</Typography>
+            <Typography variant="p" className="normal-text"></Typography>
           </div>
           <div className="group-text-field text-primary-color">
             <TextField
               required
               id="outlined-required"
-              label="Email"
+              label="New Password"
+              defaultValue=""
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="Confirm New Password"
               defaultValue=""
             />
           </div>
@@ -48,16 +52,16 @@ export default function ResetPassword() {
             <Button
               variant="outlined"
               className="text-primary-color button-secondary"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/resetpassword")}
             >
               Cancel
             </Button>
             <Button
               variant="contained"
               className="text-primary-color button-primary"
-              onClick={() => navigate("/newpassword")}
+              onClick={() => navigate("/login")}
             >
-              Confirm
+              Submit
             </Button>
           </div>
         </div>
