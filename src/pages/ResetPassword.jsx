@@ -8,7 +8,7 @@ import "../assets/css/TextField.css";
 import "../assets/css/Login.css";
 import "../assets/css/Root.css";
 
-export default function Login() {
+export default function ResetPassword() {
   const navigate = useNavigate();
   return (
     <>
@@ -31,51 +31,34 @@ export default function Login() {
           }}
         >
           <div className="form-typography text-primary-color">
-            <Typography variant="h4">Welcome Back! Cheff</Typography>
+            <Typography variant="h4">Reset Password</Typography>
             <Typography variant="p" className="normal-text">
-              Please login first
+              Send OTP code to your email address
             </Typography>
           </div>
           <div className="group-text-field text-primary-color">
             <TextField
               required
               id="outlined-required"
-              label="Username"
+              label="Email"
               defaultValue=""
             />
-            <TextField
-              required
-              id="outlined-required"
-              label="Password"
-              defaultValue=""
-            />
-          </div>
-          <div className="form-typography text-primary-color">
-            <Typography variant="p" className="normal-text">
-              Forgot Password?&ensp;
-              <span
-                className="hyperlink"
-                onClick={() => navigate("/resetpassword")}
-              >
-                Click Here
-              </span>
-            </Typography>
           </div>
           <div className="form-button">
             <Button
+              variant="outlined"
+              className="text-primary-color button-secondary"
+              onClick={() => navigate("/login")}
+            >
+              Cancel
+            </Button>
+            <Button
               variant="contained"
               className="text-primary-color button-primary"
+              onClick={() => navigate("/newpassword")}
             >
               Login
             </Button>
-          </div>
-          <div style={{}}>
-            <Typography variant="p" className="normal-text">
-              Dont have account?&ensp;
-              <span className="hyperlink" onClick={() => navigate("/register")}>
-                Sign Up Here
-              </span>
-            </Typography>
           </div>
         </div>
       </div>

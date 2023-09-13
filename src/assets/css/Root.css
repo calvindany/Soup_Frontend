@@ -32,5 +32,12 @@
   background-color: #fabc1d !important;
   width: 140px;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 8px !important;
+}
+
+.button-secondary {
+  border: 1px solid #5b4947 !important;
+  width: 140px;
+  padding: 10px;
+  border-radius: 8px !important;
 }
