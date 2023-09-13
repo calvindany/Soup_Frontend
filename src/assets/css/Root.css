@@ -9,11 +9,12 @@
 .hyperlink {
   color: #2f80ed;
   cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 
 .hyperlink:hover {
   /* text-decoration: underline; */
-  font-weight: 500;
+  opacity: 80%;
 }
 
 .normal-text {
