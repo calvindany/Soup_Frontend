@@ -4,11 +4,11 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-import "../assets/css/TextField.css";
-import "../assets/css/Login.css";
-import "../assets/css/Root.css";
+import "@/assets/css/TextField.css";
+import "@/assets/css/Login.css";
+import "@/assets/css/Root.css";
 
-export default function ResetPassword() {
+export default function Login() {
   const navigate = useNavigate();
   return (
     <>
@@ -31,38 +31,51 @@ export default function ResetPassword() {
           }}
         >
           <div className="form-typography text-primary-color">
-            <Typography variant="h4">Create Password</Typography>
-            <Typography variant="p" className="normal-text"></Typography>
+            <Typography variant="h4">Welcome Back! Cheff</Typography>
+            <Typography variant="p" className="normal-text">
+              Please login first
+            </Typography>
           </div>
           <div className="group-text-field text-primary-color">
             <TextField
               required
               id="outlined-required"
-              label="New Password"
+              label="Username"
               defaultValue=""
             />
             <TextField
               required
               id="outlined-required"
-              label="Confirm New Password"
+              label="Password"
               defaultValue=""
             />
           </div>
+          <div className="form-typography text-primary-color">
+            <Typography variant="p" className="normal-text">
+              Forgot Password?&ensp;
+              <span
+                className="hyperlink"
+                onClick={() => navigate("/resetpassword")}
+              >
+                Click Here
+              </span>
+            </Typography>
+          </div>
           <div className="form-button">
-            <Button
-              variant="outlined"
-              className="text-primary-color button-secondary"
-              onClick={() => navigate("/resetpassword")}
-            >
-              Cancel
-            </Button>
             <Button
               variant="contained"
               className="text-primary-color button-primary"
-              onClick={() => navigate("/login")}
             >
-              Submit
+              Login
             </Button>
+          </div>
+          <div style={{}}>
+            <Typography variant="p" className="normal-text">
+              Dont have account?&ensp;
+              <span className="hyperlink" onClick={() => navigate("/register")}>
+                Sign Up Here
+              </span>
+            </Typography>
           </div>
         </div>
       </div>

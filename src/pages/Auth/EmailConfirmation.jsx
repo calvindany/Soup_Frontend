@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Typography, Button } from "@mui/material";
 
-import "../assets/css/Root.css";
+import "@/assets/css/Root.css";
 
-import Character from "../assets/img/character.png";
+import Character from "@/assets/img/character.png";
 
 export default function EmailConfirmation() {
   const navigate = useNavigate();

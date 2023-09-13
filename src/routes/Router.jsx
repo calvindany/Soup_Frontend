@@ -1,10 +1,10 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import ResetPassword from "../pages/ResetPassword";
-import NewPassword from "../pages/NewPassword";
-import EmailConfirmation from "../pages/EmailConfirmation";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import ResetPassword from "../pages/Auth/ResetPassword";
+import NewPassword from "../pages/Auth/NewPassword";
+import EmailConfirmation from "../pages/Auth/EmailConfirmation";
 
 export default function Router() {
   const location = useLocation();
