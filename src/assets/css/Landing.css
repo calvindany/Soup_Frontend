@@ -1,1 +1,42 @@
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
 
+.course-total-card {
+    border-radius: 20px !important;
+    width: 324px;
+    height: 207px;
+    border: solid 1px #BDBDBD;
+    display: flex;
+    align-items: center;
+}
+
+.course-total-card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly !important;
+    align-items: center;
+}
+
+
+.course-container {
+    text-align: center;
+    display: fel;
+}
+
+.list-course-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.list-category-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 60px;
+    justify-items: center;
+    /* width: 90%; */
+}

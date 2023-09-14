@@ -1,4 +1,5 @@
-import Router from "../routes/Router";
+import Footer from "@/components/Footer";
+import Router from "@/routes/Router";
 import NavBar from "@/components/NavBar";
 
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
     <>
       <NavBar />
       <Router />
+      <Footer />
     </>
   );
 }
