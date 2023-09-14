@@ -167,8 +167,8 @@ export default function LandingPage() {
             More Professional Class
           </Typography>
           <div className="list-course-container">
-            {data.map((course) => (
-              <Card sx={{ minWidth: 400 }}>
+            {data.map((course, index) => (
+              <Card sx={{ minWidth: 400 }} key={index}>
                 <CardMedia
                   sx={{ height: 250 }}
                   image={course.image}

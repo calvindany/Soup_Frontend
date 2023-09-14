@@ -12,7 +12,10 @@ export default function Banner({
 }) {
   return (
     <>
-      <div className="banner-container" style={{ marginBottom: "8vh" }}>
+      <div
+        className="banner-container"
+        style={{ marginBottom: "8vh", backgroundColor: "black" }}
+      >
         <div className="image-container">
           <img src={BannerLanding} alt="Banner" />
         </div>

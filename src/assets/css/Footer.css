@@ -1,0 +1,88 @@
+.footer {
+  background-color: #5b4947;
+  color: #e0e0e0;
+  display: flex;
+  padding: 40px 70px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 25%;
+}
+
+.about-us span {
+  text-align: justify;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 25%;
+}
+
+.category ul {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  row-gap: 20px;
+  padding-left: 30px;
+}
+
+.category ul li {
+  cursor: pointer;
+}
+
+.contact {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact .address,
+.contact .contact-us {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact .contact-us .social {
+  display: flex;
+  gap: 10px;
+}
+
+.contact .contact-us .social svg {
+  font-size: 1.5vw;
+  padding: 10px;
+  background-color: #fabc1d;
+  border-radius: 50%;
+  color: #5b4947;
+}
+
+@media (max-width: 575.98px) {
+  .footer {
+    display: block;
+    padding: 40px 50px;
+  }
+
+  .contact {
+    display: block;
+  }
+
+  .about-us,
+  .category,
+  .contact,
+  .contact .address {
+    width: 100%;
+    margin-bottom: 10vh;
+  }
+
+  .contact .social svg {
+    font-size: 10vw !important;
+    padding: 10px;
+  }
+}

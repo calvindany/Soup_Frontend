@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-// import "@/assets/css/CategoryCard.css";
+import "@/assets/css/CategoryCard.css";
 
 export default function CategoryCard({ image, title }) {
   return (
