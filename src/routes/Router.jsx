@@ -6,6 +6,7 @@ import ResetPassword from "../pages/Auth/ResetPassword";
 import NewPassword from "../pages/Auth/NewPassword";
 import EmailConfirmation from "../pages/Auth/EmailConfirmation";
 import LandingPage from "../pages/User/LandingPage";
+import ListMenuClass from "../pages/User/ListMenuClass";
 
 export default function Router() {
   const location = useLocation();
@@ -13,6 +14,7 @@ export default function Router() {
     <>
       <Routes location={location} key={location.pathname}>
         <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/listmenuclass" element={<ListMenuClass />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/resetpassword" element={<ResetPassword />} />
