@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 
-import BannerLanding from "@/assets/img/banner-landing.png";
-
 import "@/assets/css/Banner.css";
 
 export default function Banner({
+  image,
   titleSize = "normal",
   textSize,
+  alignItems,
   title,
   text,
 }) {
@@ -17,16 +17,16 @@ export default function Banner({
         style={{ marginBottom: "8vh", backgroundColor: "black" }}
       >
         <div className="image-container">
-          <img src={BannerLanding} alt="Banner" />
+          <img src={image} alt="Banner" />
         </div>
-        <div className="text-container">
+        <div className="text-container" style={{ alignItems: alignItems }}>
           <Typography
             variant="h4"
             className={
               titleSize == "normal" ? "banner-title-normal" : "banner-title-big"
             }
           >
-            Be the next great chef
+            {title}
           </Typography>
           <Typography
             variant="p"
@@ -34,8 +34,7 @@ export default function Banner({
               titleSize == "normal" ? "banner-text-normal" : "banner-text-big"
             }
           >
-            We are able to awaken your cooking skills to become a classy chef
-            and ready to dive into the professional world
+            {text}
           </Typography>
         </div>
       </div>

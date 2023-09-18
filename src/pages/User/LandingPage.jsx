@@ -9,9 +9,12 @@ import {
 import Edit1 from "@/assets/img/edit1.png";
 import Edit2 from "@/assets/img/edit2.png";
 import Edit3 from "@/assets/img/edit3.png";
+import BannerLanding1 from "@/assets/img/banner-landing.png";
+import BannerLanding2 from "@/assets/img/banner-landing2.png";
 
 import BannerLanding from "@/components/Banner";
 import CategoryCard from "@/components/CategoryCard";
+import Footer from "@/components/Footer";
 
 import "@/assets/css/Landing.css";
 import "@/assets/css/Root.css";
@@ -92,7 +95,14 @@ export default function LandingPage() {
   ];
   return (
     <>
-      <BannerLanding />
+      <BannerLanding
+        image={BannerLanding1}
+        titleSize="normal"
+        alignItems="center"
+        title="Be the next great chef"
+        text="We are able to awaken your cooking skills to become a classy chef and
+      ready to dive into the professional world"
+      />
       <Container maxWidth="xl" style={{ marginBottom: "8vh" }}>
         <div className="card-container">
           <Card className="course-total-card">
@@ -201,7 +211,13 @@ export default function LandingPage() {
           </div>
         </div>
       </Container>
-      <BannerLanding />
+      <BannerLanding
+        image={BannerLanding2}
+        titleSize="big"
+        alignItems="start"
+        title="Gets your best benefit"
+        text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam."
+      />
       <Container maxWidth="xl" style={{ marginBottom: "8vh" }}>
         <div className="course-container">
           <Typography
@@ -228,6 +244,7 @@ export default function LandingPage() {
           </div>
         </div>
       </Container>
+      <Footer />
     </>
   );
 }
