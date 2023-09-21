@@ -1,29 +1,40 @@
+import { useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import { Typography, Divider } from "@mui/material";
 
 import BannerListClass from "@/assets/img/banner-list-class.png";
 
 import Banner from "@/components/Banner";
+import ListCourse from "@/components/ListCourse";
+import Footer from "@/components/Footer";
 
 import "@/assets/css/Root.css";
 import "@/assets/css/ListMenuClass.css";
 
+import { data, categoryData } from "@/assets/data";
+
 export default function ListMenuClass() {
+  const { pathName } = useLocation();
+  const { categoryId } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathName]);
+
   return (
     <>
       <Banner image={BannerListClass} />
       <div className="menu-class-detail">
-        <Typography variant="h5">Asian</Typography>
+        <Typography variant="h5" style={{ marginBottom: "20px" }}>
+          {categoryData[categoryId].title}
+        </Typography>
         <Typography variant="p">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          {categoryData[categoryId].description}
         </Typography>
       </div>
-      <Divider sx={{ marginTop: "10vh" }} />
+      <Divider sx={{ marginTop: "10vh", marginBottom: "10vh" }} />
+      <ListCourse listImage={data} />
+      <Footer />
     </>
   );
 }

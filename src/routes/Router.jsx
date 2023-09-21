@@ -14,7 +14,11 @@ export default function Router() {
     <>
       <Routes location={location} key={location.pathname}>
         <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/listmenuclass" element={<ListMenuClass />} />
+        <Route
+          exact
+          path="/listmenuclass/:categoryId"
+          element={<ListMenuClass />}
+        />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/resetpassword" element={<ResetPassword />} />

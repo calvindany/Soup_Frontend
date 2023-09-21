@@ -196,6 +196,7 @@ export default function LandingPage() {
                 <CategoryCard
                   image={category.image}
                   title={category.title}
+                  id={index}
                   key={index}
                 />
               ))}
