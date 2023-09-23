@@ -1,0 +1,54 @@
+.detailCourseContainer{
+    display: flex;
+    gap: 5vw;
+    padding: 0 10vw;
+    margin-bottom: 5vh;
+}
+
+.detailCourseImageContainer {
+    width: 30vw;
+}
+
+.detailCourseImageContainer img {
+    max-width: 100%;
+}
+
+.detailCourseForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 20px; */
+}
+
+.detailCourseData {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detailCourseClassTitle {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.dropdownSchedule {
+    width: 20vw;
+}
+
+.button-group {
+    display: flex;
+    width: 20vw;
+    gap: 2vw;
+}
+
+.button-group .btn {
+    width: 100%;
+}
+
+.detailCourseDescription {
+    padding: 0 10vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
