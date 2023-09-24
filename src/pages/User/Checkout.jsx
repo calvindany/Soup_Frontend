@@ -1,7 +1,8 @@
-import { Checkbox, Divider } from "@mui/material";
+import { Checkbox, Divider, Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import CheckoutCard from "@/components/CheckoutCard";
+import Footer from "@/components/Footer";
 
 import { data, checkoutData } from "@/assets/data";
 
@@ -77,6 +78,19 @@ export default function Checkout() {
             <Divider />
           </div>
         ))}
+      </div>
+      <div className="checkoutFooter">
+        <div className="priceTag">
+          <Typography variant="h6">Total Price</Typography>
+          <span className="text-secondary-color">IDR 11.500.000</span>
+        </div>
+        <Button
+          variant="contained"
+          className="text-primary-color button-primary"
+          style={{ textTransform: "none" }}
+        >
+          Pay Now
+        </Button>
       </div>
     </>
   );
