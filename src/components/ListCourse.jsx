@@ -5,8 +5,10 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function ListCourse({ listImage }) {
+  const navigate = useNavigate();
   return (
     <>
       <Container maxWidth="xl" style={{ marginBottom: "8vh" }}>
@@ -19,7 +21,11 @@ export default function ListCourse({ listImage }) {
           </Typography>
           <div className="list-course-container">
             {listImage.map((course, index) => (
-              <Card sx={{ minWidth: 400 }} key={index}>
+              <Card
+                sx={{ minWidth: 400 }}
+                key={index}
+                onClick={() => navigate("/detailclass/" + index)}
+              >
                 <CardMedia
                   sx={{ height: 250 }}
                   image={course.image}

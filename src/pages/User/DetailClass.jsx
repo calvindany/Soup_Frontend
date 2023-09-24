@@ -8,6 +8,8 @@ import {
   Button,
   Divider,
 } from "@mui/material";
+import { useParams, useLocation } from "react-router-dom";
+
 import ListCourse from "@/components/ListCourse";
 import Footer from "@/components/Footer";
 
@@ -17,6 +19,9 @@ import { GenerateOneWeekDate } from "@/utils/GenerateDate";
 import "@/assets/css/DetailClass.css";
 
 export default function DetailClass() {
+  const { courseId } = useParams();
+  const { pathName } = useLocation();
+
   const [selectedSchedule, setSelectedSchedule] = useState("");
   const [availSchedule, setAvailSchedule] = useState([]);
 
@@ -26,23 +31,26 @@ export default function DetailClass() {
 
   useEffect(() => {
     setAvailSchedule(GenerateOneWeekDate());
-    console.log(GenerateOneWeekDate());
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathName]);
 
   return (
     <>
       <div className="detailCourseContainer">
         <div className="detailCourseImageContainer">
-          <img src={data[1].image} alt={data[1].title} />
+          <img src={data[courseId].image} alt={data[courseId].title} />
         </div>
         <div className="detailCourseForm">
           <div className="detailCourseData">
-            <Typography variant="span">Asian</Typography>
+            <Typography variant="span">{data[courseId].category}</Typography>
             <Typography variant="span" className="detailCourseClassTitle">
-              Tom Yum Thailand
+              {data[courseId].title}
             </Typography>
             <Typography variant="span" className="detailCourseClassTitle">
-              IDR. 450.000
+              IDR. {data[courseId].price}
             </Typography>
           </div>
           <FormControl className="dropdownSchedule">

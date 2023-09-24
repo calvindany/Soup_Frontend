@@ -29,11 +29,7 @@ export default function Router() {
           path="/emailconfirmation"
           element={<EmailConfirmation />}
         />
-        <Route
-          exact
-          path="/detailclass"
-          element={<DetailClass />}
-        />
+        <Route exact path="/detailclass/:courseId" element={<DetailClass />} />
       </Routes>
     </>
   );
