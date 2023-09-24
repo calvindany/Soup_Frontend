@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Typography,
   FormControl,
@@ -12,15 +12,22 @@ import ListCourse from "@/components/ListCourse";
 import Footer from "@/components/Footer";
 
 import { data, categoryData } from "@/assets/data";
+import { GenerateOneWeekDate } from "@/utils/GenerateDate";
 
 import "@/assets/css/DetailClass.css";
 
 export default function DetailClass() {
-  const [schedule, setSchedule] = useState("");
+  const [selectedSchedule, setSelectedSchedule] = useState("");
+  const [availSchedule, setAvailSchedule] = useState([]);
 
   const handleScheduleChange = (event) => {
-    setSchedule(event.target.value);
+    setSelectedSchedule(event.target.value);
   };
+
+  useEffect(() => {
+    setAvailSchedule(GenerateOneWeekDate());
+    console.log(GenerateOneWeekDate());
+  }, []);
 
   return (
     <>
@@ -43,13 +50,15 @@ export default function DetailClass() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={schedule}
+              value={selectedSchedule}
               label="Schedule Here"
               onChange={handleScheduleChange}
             >
-              <MenuItem value={10}>Monday, 25 July 2023</MenuItem>
-              <MenuItem value={20}>Tue, 26 July 2023</MenuItem>
-              <MenuItem value={30}>Wed, 27 July 2023</MenuItem>
+              {availSchedule.map((avail, index) => (
+                <MenuItem value={avail} key={index}>
+                  {avail}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           <div className="button-group">
