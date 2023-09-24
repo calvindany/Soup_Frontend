@@ -4,19 +4,30 @@ import { data, categoryData } from "@/assets/data";
 
 import "@/assets/css/Root.css";
 import "@/assets/css/CheckoutCard.css";
+import { useEffect } from "react";
 
 export default function CheckoutCard({
+  courseId,
   image,
   category,
   title,
   schedule,
   price,
+  isChecked,
+  onChangeHandler,
 }) {
+  useEffect(() => {}, [isChecked]);
+
   return (
     <>
       <div className="checkoutCard">
         <div className="checkoutCheckbox">
-          <Checkbox color="default" />
+          <Checkbox
+            color="default"
+            value={courseId}
+            onChange={onChangeHandler}
+            checked={isChecked}
+          />
         </div>
         <div className="checkoutImage">
           <img src={image} alt={title} />
