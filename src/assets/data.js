@@ -132,4 +132,21 @@ export const categoryData = [
     },
   ];
 
-// exports.module = {data, categoryData}
+export const checkoutData = [
+  {
+    courseId: 1,
+    schedule: "Wednesday, 27 July 2023",
+  },
+  {
+    courseId: 2,
+    schedule: "Wednesday, 10 July 2023",
+  },
+  {
+    courseId: 3,
+    schedule: "Wednesday, 12 July 2023",
+  },
+  {
+    courseId: 4,
+    schedule: "Wednesday, 30 July 2023",
+  },
+]
