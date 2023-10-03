@@ -8,6 +8,7 @@ import EmailConfirmation from "../pages/Auth/EmailConfirmation";
 import LandingPage from "../pages/User/LandingPage";
 import ListMenuClass from "../pages/User/ListMenuClass";
 import DetailClass from "../pages/User/DetailClass";
+import Checkout from "../pages/User/Checkout";
 
 export default function Router() {
   const location = useLocation();
@@ -30,6 +31,7 @@ export default function Router() {
           element={<EmailConfirmation />}
         />
         <Route exact path="/detailclass/:courseId" element={<DetailClass />} />
+        <Route exact path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   );

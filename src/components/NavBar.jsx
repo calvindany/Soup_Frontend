@@ -20,7 +20,7 @@ export default function NavBar() {
           backgroundColor: "#fff",
           padding: "10px 70px",
           boxShadow: "none",
-          position:"static"
+          position: "static",
         }}
       >
         <Toolbar>

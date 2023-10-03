@@ -1,0 +1,43 @@
+.checkoutCard{
+    display: flex;
+    gap: 20px;
+    padding: 1vw 0;
+}
+
+.checkoutCheckbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkoutImage {
+    width: 15vw;
+}
+
+.checkoutImage img {
+    max-width: 100%;
+}
+
+.checkoutCourseData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.checkoutCourseClassCategory {
+    opacity: 60%;
+    font-size: 16px;
+}
+
+.checkoutCourseClassTitle {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.checkoutCourseClassSchedule {
+    font-size: 16px;
+}
+
+.checkoutCourseClassPrice {
+    font-size: 20px;
+    font-weight: 600;
+}
