@@ -176,3 +176,24 @@ export const paymentMethod = [
     image: ShopeePay
   },
 ]
+
+export const invoiceData = [
+  {
+    "noInvoice": "SOUP1234",
+    "invoiceDates": "9/8/2023 4:08:15 PM",
+    "totalCourse": 3,
+    "totalPrice": 400000
+  },
+  {
+    "noInvoice": "SOUP1234",
+    "invoiceDates": "9/8/2023 4:08:15 PM",
+    "totalCourse": 3,
+    "totalPrice": 400000
+  },
+  {
+    "noInvoice": "SOUP1234",
+    "invoiceDates": "9/8/2023 4:08:15 PM",
+    "totalCourse": 3,
+    "totalPrice": 400000
+  },
+]
