@@ -72,7 +72,7 @@ export default function Register() {
               Sign Up
             </Button>
           </div>
-          <div style={{}}>
+          <div>
             <Typography variant="p" className="normal-text">
               Have account?&ensp;
               <span className="hyperlink" onClick={() => navigate("/login")}>
