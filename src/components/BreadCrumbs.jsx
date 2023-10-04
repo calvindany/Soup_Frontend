@@ -9,20 +9,18 @@ export default function BreadcrumbsCustom() {
       href="/"
       //   onClick={handleClick}
     >
-      MUI
+      Home
     </Link>,
     <Link
       underline="hover"
       key="2"
       color="inherit"
-      href="/material-ui/getting-started/installation/"
+      href="/invoice"
+      style={{ fontWeight: 600 }}
       //   onClick={handleClick}
     >
-      Core
+      Invoice
     </Link>,
-    <Typography key="3" color="text.primary">
-      Breadcrumb
-    </Typography>,
   ];
   return (
     <>

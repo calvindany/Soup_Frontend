@@ -9,6 +9,8 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import BreadcrumbsCustom from "@/components/BreadCrumbs";
 
 import { invoiceData } from "@/assets/data";
@@ -17,6 +19,7 @@ import "@/assets/css/Root.css";
 import "@/assets/css/Invoice.css";
 
 export default function Invoice() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="invoiceContainer">
@@ -64,6 +67,9 @@ export default function Invoice() {
                       variant="contained"
                       className="text-primary-color button-primary"
                       style={{ textTransform: "none", fontWeight: 600 }}
+                      onClick={() =>
+                        navigate("/detail-invoice/" + invoice.noInvoice)
+                      }
                     >
                       Details
                     </Button>
