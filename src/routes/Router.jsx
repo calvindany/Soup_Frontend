@@ -9,6 +9,7 @@ import LandingPage from "../pages/User/LandingPage";
 import ListMenuClass from "../pages/User/ListMenuClass";
 import DetailClass from "../pages/User/DetailClass";
 import Checkout from "../pages/User/Checkout";
+import DetailInvoice from "../pages/User/DetailInvoice";
 
 export default function Router() {
   const location = useLocation();
@@ -32,6 +33,7 @@ export default function Router() {
         />
         <Route exact path="/detailclass/:courseId" element={<DetailClass />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/detail-invoice" element={<DetailInvoice />} />
       </Routes>
     </>
   );
