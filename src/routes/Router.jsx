@@ -35,7 +35,11 @@ export default function Router() {
         <Route exact path="/detailclass/:courseId" element={<DetailClass />} />
         <Route exact path="/checkout" element={<Checkout />} />
         <Route exact path="/invoice" element={<Invoice />} />
-        <Route exact path="/detail-invoice" element={<DetailInvoice />} />
+        <Route
+          exact
+          path="/detail-invoice/:idInvoice"
+          element={<DetailInvoice />}
+        />
       </Routes>
     </>
   );

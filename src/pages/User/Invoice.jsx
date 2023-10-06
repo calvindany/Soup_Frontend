@@ -8,6 +8,7 @@ import {
   Paper,
   Button,
   Typography,
+  Link,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -20,10 +21,33 @@ import "@/assets/css/Invoice.css";
 
 export default function Invoice() {
   const navigate = useNavigate();
+
+  const breadcrumbsItem = [
+    <Link
+      underline="hover"
+      key="1"
+      color="inherit"
+      href="/"
+      //   onClick={handleClick}
+    >
+      Home
+    </Link>,
+    <Link
+      underline="hover"
+      key="2"
+      color="inherit"
+      href="/invoice"
+      style={{ fontWeight: 600 }}
+      //   onClick={handleClick}
+    >
+      Invoice
+    </Link>,
+  ];
+
   return (
     <>
       <div className="invoiceContainer">
-        <BreadcrumbsCustom />
+        <BreadcrumbsCustom item={breadcrumbsItem} />
         <Typography variant="h6" style={{ fontWeight: 600 }}>
           Menu Invoice
         </Typography>
@@ -54,7 +78,7 @@ export default function Invoice() {
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell align="center" component="th" scope="row">
                     {invoice.noInvoice}
                   </TableCell>
                   <TableCell align="center">{invoice.invoiceDates}</TableCell>
