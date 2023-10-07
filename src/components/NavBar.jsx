@@ -41,6 +41,7 @@ export default function NavBar() {
               src={Logo}
               alt="Logo Soup"
               style={{ maxWidth: "50px", cursor: "pointer" }}
+              onClick={() => navigate("/")}
             />
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
