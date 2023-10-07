@@ -261,3 +261,36 @@ export const detailInvoiceData = [
     }
   ],
 ]
+
+export const myClassData = [
+  {
+    "category" : "Asian",
+    "courseName": "Tom Yum Thailand",
+    image: Edit3,
+    "scheduledCourse": "1/19/2038 3:14:07 AM",
+  },
+  {
+    "category" : "Asian",
+    "courseName": "Tom Yum Thailand",
+    image: Edit3,
+    "scheduledCourse": "1/19/2038 3:14:07 AM",
+  },
+  {
+    "category" : "Asian",
+    "courseName": "Tom Yum Thailand",
+    image: Edit3,
+    "scheduledCourse": "1/19/2038 3:14:07 AM",
+  },
+  {
+    "category" : "Asian",
+    "courseName": "Tom Yum Thailand",
+    image: Edit3,
+    "scheduledCourse": "1/19/2038 3:14:07 AM",
+  },
+  {
+    "category" : "Asian",
+    "courseName": "Tom Yum Thailand",
+    image: Edit3,
+    "scheduledCourse": "1/19/2038 3:14:07 AM",
+  },
+]

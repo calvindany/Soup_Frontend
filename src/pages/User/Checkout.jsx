@@ -114,6 +114,7 @@ export default function Checkout() {
               price={data[checkout.courseId].price}
               isChecked={checkedCourse.includes(checkout.courseId)}
               onChangeHandler={handleCheckCourse}
+              editDisplay={true}
             />
             <Divider />
           </div>
