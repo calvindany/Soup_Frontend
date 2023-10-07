@@ -40,6 +40,7 @@ export default function Router() {
           path="/detail-invoice/:idInvoice"
           element={<DetailInvoice />}
         />
+
       </Routes>
     </>
   );

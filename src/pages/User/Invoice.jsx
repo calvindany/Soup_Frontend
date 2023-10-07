@@ -21,7 +21,6 @@ import "@/assets/css/Invoice.css";
 
 export default function Invoice() {
   const navigate = useNavigate();
-
   const breadcrumbsItem = [
     <Link
       underline="hover"

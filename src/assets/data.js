@@ -196,6 +196,7 @@ export const invoiceData = [
     "totalCourse": 3,
     "totalPrice": 400000
   },
+
 ]
 
 export const detailInvoiceData = [
