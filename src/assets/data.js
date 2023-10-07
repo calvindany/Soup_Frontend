@@ -179,21 +179,85 @@ export const paymentMethod = [
 
 export const invoiceData = [
   {
-    "noInvoice": "SOUP1234",
+    "noInvoice": "0",
     "invoiceDates": "9/8/2023 4:08:15 PM",
     "totalCourse": 3,
     "totalPrice": 400000
   },
   {
-    "noInvoice": "SOUP1234",
+    "noInvoice": "1",
     "invoiceDates": "9/8/2023 4:08:15 PM",
     "totalCourse": 3,
     "totalPrice": 400000
   },
   {
-    "noInvoice": "SOUP1234",
+    "noInvoice": "2",
     "invoiceDates": "9/8/2023 4:08:15 PM",
     "totalCourse": 3,
     "totalPrice": 400000
   },
+
+]
+
+export const detailInvoiceData = [
+  [
+    {
+      "courseName": "Sushi Salmon with Me",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 200000
+    },
+    {
+      "courseName": "Rendang Sapi",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 200000
+    },
+    {
+      "courseName": "Tom Yum Thailand",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 450000
+    }
+  ],
+  [
+    {
+      "courseName": "Sushi Salmon with Me",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 200000
+    },
+    {
+      "courseName": "Rendang Sapi",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 200000
+    },
+    {
+      "courseName": "Tom Yum Thailand",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 450000
+    }
+  ],
+  [
+    {
+      "courseName": "Sushi Salmon with Me",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 200000
+    },
+    {
+      "courseName": "Rendang Sapi",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 200000
+    },
+    {
+      "courseName": "Tom Yum Thailand",
+      "category": "Asian",
+      "scheduledCourse": "1/19/2038 3:14:07 AM",
+      "coursePrice": 450000
+    }
+  ],
 ]

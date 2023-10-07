@@ -1,0 +1,23 @@
+.invoiceInformation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+
+.invoiceInformation .left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.invoiceInformation .left div{
+    display: flex;
+    gap: 20px;
+}
+
+.invoiceInformation .right {
+    display: flex;
+    gap: 20px;
+}
