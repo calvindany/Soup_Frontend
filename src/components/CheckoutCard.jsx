@@ -15,13 +15,17 @@ export default function CheckoutCard({
   price,
   isChecked,
   onChangeHandler,
+  editDisplay,
 }) {
   useEffect(() => {}, [isChecked]);
 
   return (
     <>
       <div className="checkoutCard">
-        <div className="checkoutCheckbox">
+        <div
+          className="checkoutCheckbox"
+          style={{ display: editDisplay ? "block" : "none" }}
+        >
           <Checkbox
             color="default"
             value={courseId}
@@ -51,6 +55,7 @@ export default function CheckoutCard({
           <Typography
             variant="span"
             className="checkoutCourseClassPrice text-secondary-color"
+            style={{ display: editDisplay ? "block" : "none" }}
           >
             IDR. {price}
           </Typography>
