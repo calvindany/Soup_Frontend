@@ -22,7 +22,7 @@ export default function LandingPage() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_API_BASE_URL}/Courses`)
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
         setCourses(result.data);
       })
       .catch((err) => console.log(err));
@@ -31,12 +31,14 @@ export default function LandingPage() {
       .get(`${import.meta.env.VITE_BACKEND_API_BASE_URL}/Category`)
       .then((result) => {
         setCategories(result.data);
+        console.log(result.data);
       })
       .catch((err) => console.log(err));
   }, []);
-  useEffect(() => {
-    console.log(courses);
-  }, [courses]);
+
+  // useEffect(() => {
+  //   console.log(courses);
+  // }, [courses]);
 
   return (
     <>
@@ -150,9 +152,9 @@ export default function LandingPage() {
               <div className="list-category-container">
                 {categories.map((category, index) => (
                   <CategoryCard
+                    id={category.id}
                     image={category.image}
                     title={category.title}
-                    id={index}
                     key={index}
                   />
                 ))}
