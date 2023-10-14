@@ -1,14 +1,7 @@
-import {
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-} from "@mui/material";
+import { Container, Typography, Card, CardContent } from "@mui/material";
+import axios from "axios";
+import { GridLoader } from "react-spinners";
 
-import Edit1 from "@/assets/img/edit1.png";
-import Edit2 from "@/assets/img/edit2.png";
-import Edit3 from "@/assets/img/edit3.png";
 import BannerLanding1 from "@/assets/img/banner-landing.png";
 import BannerLanding2 from "@/assets/img/banner-landing2.png";
 
@@ -19,81 +12,32 @@ import Footer from "@/components/Footer";
 
 import "@/assets/css/Landing.css";
 import "@/assets/css/Root.css";
+import { useEffect, useState } from "react";
 
 export default function LandingPage() {
-  const data = [
-    {
-      image: Edit1,
-      title: "Tom Yum Thailand",
-      category: "Asian",
-      price: "IDR 450.000",
-    },
-    {
-      image: Edit2,
-      title: "Tom Yum Thailand",
-      category: "Asian",
-      price: "IDR 450.000",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-      category: "Asian",
-      price: "IDR 450.000",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-      category: "Asian",
-      price: "IDR 450.000",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-      category: "Asian",
-      price: "IDR 450.000",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-      category: "Asian",
-      price: "IDR 450.000",
-    },
-  ];
+  const [courses, setCourses] = useState([]);
+  const [categories, setCategories] = useState([]);
 
-  const categoryData = [
-    {
-      image: Edit1,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit2,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit1,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit2,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit2,
-      title: "Tom Yum Thailand",
-    },
-    {
-      image: Edit3,
-      title: "Tom Yum Thailand",
-    },
-  ];
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_API_BASE_URL}/Courses`)
+      .then((result) => {
+        console.log(result.data);
+        setCourses(result.data);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_API_BASE_URL}/Category`)
+      .then((result) => {
+        setCategories(result.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    console.log(courses);
+  }, [courses]);
+
   return (
     <>
       <BannerLanding
@@ -169,7 +113,7 @@ export default function LandingPage() {
           </Card>
         </div>
       </Container>
-      <ListCourse listImage={data} />
+      <ListCourse listImage={courses} />
       <BannerLanding
         image={BannerLanding2}
         titleSize="big"
@@ -191,16 +135,29 @@ export default function LandingPage() {
               justifyContent: "center",
             }}
           >
-            <div className="list-category-container">
-              {categoryData.map((category, index) => (
-                <CategoryCard
-                  image={category.image}
-                  title={category.title}
-                  id={index}
-                  key={index}
-                />
-              ))}
-            </div>
+            {categories.length == 0 ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "100%",
+                  margin: "50px 64px",
+                }}
+              >
+                <GridLoader color="#372B22" />
+              </div>
+            ) : (
+              <div className="list-category-container">
+                {categories.map((category, index) => (
+                  <CategoryCard
+                    image={category.image}
+                    title={category.title}
+                    id={index}
+                    key={index}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </Container>

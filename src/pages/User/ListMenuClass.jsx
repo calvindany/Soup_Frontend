@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { Typography, Divider } from "@mui/material";
+import axios from "axios";
 
 import BannerListClass from "@/assets/img/banner-list-class.png";
 
@@ -20,6 +21,10 @@ export default function ListMenuClass() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathName]);
+
+  // useEffect(() => {
+  //   axios.get(`${import.meta.env.VITE_BACKEND_API_BASE_URL}/`)
+  // })
 
   return (
     <>
