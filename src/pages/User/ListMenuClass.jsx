@@ -31,14 +31,14 @@ export default function ListMenuClass() {
       )
       .then((result) => {
         setCategoryInformation(result.data);
-        console.log(result.data);
+        // console.log(result.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
-    console.log(categoryInformation);
-  }, [categoryInformation]);
+  // useEffect(() => {
+  //   console.log(categoryInformation);
+  // }, [categoryInformation]);
 
   return (
     <>

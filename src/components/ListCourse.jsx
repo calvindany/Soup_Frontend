@@ -8,7 +8,7 @@ import {
 import { GridLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
-export default function ListCourse({ listImage }) {
+export default function ListCourse({ listImage = [] }) {
   const navigate = useNavigate();
   return (
     <>
