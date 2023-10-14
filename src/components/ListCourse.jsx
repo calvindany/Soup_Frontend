@@ -37,7 +37,7 @@ export default function ListCourse({ listImage = [] }) {
                 <Card
                   sx={{ minWidth: 400 }}
                   key={index}
-                  onClick={() => navigate("/detailclass/" + index)}
+                  onClick={() => navigate("/detailclass/" + course.id)}
                 >
                   <CardMedia
                     sx={{ height: 250 }}
