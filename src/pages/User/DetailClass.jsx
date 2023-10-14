@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Axios from "axios";
 import {
   Typography,
   FormControl,
@@ -13,7 +14,6 @@ import { useParams, useLocation } from "react-router-dom";
 import ListCourse from "@/components/ListCourse";
 import Footer from "@/components/Footer";
 
-import { data, categoryData } from "@/assets/data";
 import { GenerateOneWeekDate } from "@/utils/GenerateDate";
 
 import "@/assets/css/DetailClass.css";
@@ -24,6 +24,7 @@ export default function DetailClass() {
 
   const [selectedSchedule, setSelectedSchedule] = useState("");
   const [availSchedule, setAvailSchedule] = useState([]);
+  const [detailCourseInformation, setDetailCourseInformation] = useState({});
 
   const handleScheduleChange = (event) => {
     setSelectedSchedule(event.target.value);
@@ -31,6 +32,19 @@ export default function DetailClass() {
 
   useEffect(() => {
     setAvailSchedule(GenerateOneWeekDate());
+
+    Axios.get(
+      `${
+        import.meta.env.VITE_BACKEND_API_BASE_URL
+      }/Courses/GetCourseById/${courseId}`
+    )
+      .then((result) => {
+        setDetailCourseInformation(result.data);
+        console.log(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -41,16 +55,21 @@ export default function DetailClass() {
     <>
       <div className="detailCourseContainer">
         <div className="detailCourseImageContainer">
-          <img src={data[courseId].image} alt={data[courseId].title} />
+          <img
+            src={detailCourseInformation.image}
+            alt={detailCourseInformation.title}
+          />
         </div>
         <div className="detailCourseForm">
           <div className="detailCourseData">
-            <Typography variant="span">{data[courseId].category}</Typography>
-            <Typography variant="span" className="detailCourseClassTitle">
-              {data[courseId].title}
+            <Typography variant="span">
+              {detailCourseInformation.category}
             </Typography>
             <Typography variant="span" className="detailCourseClassTitle">
-              IDR. {data[courseId].price}
+              {detailCourseInformation.title}
+            </Typography>
+            <Typography variant="span" className="detailCourseClassTitle">
+              IDR. {detailCourseInformation.price}
             </Typography>
           </div>
           <FormControl className="dropdownSchedule">
@@ -107,7 +126,7 @@ export default function DetailClass() {
         </Typography>
       </div>
       <Divider sx={{ marginTop: "10vh", marginBottom: "10vh" }} />
-      <ListCourse listImage={data} />
+      <ListCourse listImage={detailCourseInformation.otherCourse} />
       <Footer />
     </>
   );
