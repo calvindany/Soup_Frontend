@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
   const login = (payload) => {
     setIsLoggedIn(true);
 
-    setCookie("payload", JSON.stringify(payload));
+    setCookie("payload", payload);
 
     setPayload(payload);
   };

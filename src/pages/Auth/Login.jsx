@@ -38,7 +38,7 @@ export default function Login() {
       )
       .then((result) => {
         if (result.data.token) {
-          login(result.data);
+          login(result.data.token);
           toast.success("Login Success");
           navigate("/");
         } else {

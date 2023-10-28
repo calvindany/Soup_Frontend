@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import {
   Typography,
   FormControl,
@@ -10,15 +10,20 @@ import {
   Divider,
 } from "@mui/material";
 import { useParams, useLocation } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 import ListCourse from "@/components/ListCourse";
 import Footer from "@/components/Footer";
 
 import { GenerateOneWeekDate } from "@/utils/GenerateDate";
 
+import useAuth from "@/hooks/useAuth";
+
 import "@/assets/css/DetailClass.css";
+import toast from "react-hot-toast";
 
 export default function DetailClass() {
+  const { payload } = useAuth();
   const { courseId } = useParams();
   const { pathName } = useLocation();
 
@@ -26,21 +31,49 @@ export default function DetailClass() {
   const [availSchedule, setAvailSchedule] = useState([]);
   const [detailCourseInformation, setDetailCourseInformation] = useState({});
 
+  const getUserIdFromToken = (token) => {
+    const { user_id } = jwtDecode(token);
+
+    return user_id;
+  };
+
   const handleScheduleChange = (event) => {
     setSelectedSchedule(event.target.value);
+  };
+
+  const handleCheckout = () => {
+    const user_id = getUserIdFromToken(payload);
+    axios
+      .post(
+        `${
+          import.meta.env.VITE_BACKEND_API_BASE_URL
+        }/Transaction/CheckoutCourse`,
+        {
+          userId: user_id,
+          courseId: courseId,
+          schedule: new Date(selectedSchedule),
+        }
+      )
+      .then(() => {
+        toast.success("Berhasil menambahkan course");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
     setAvailSchedule(GenerateOneWeekDate());
 
-    Axios.get(
-      `${
-        import.meta.env.VITE_BACKEND_API_BASE_URL
-      }/Courses/GetCourseById/${courseId}`
-    )
+    axios
+      .get(
+        `${
+          import.meta.env.VITE_BACKEND_API_BASE_URL
+        }/Courses/GetCourseById/${courseId}`
+      )
       .then((result) => {
         setDetailCourseInformation(result.data);
-        console.log(result.data);
+        // console.log(result.data);
       })
       .catch((err) => {
         console.log(err);
@@ -93,6 +126,7 @@ export default function DetailClass() {
               variant="outlined"
               className="text-primary-color button-secondary btn"
               style={{ textTransform: "none" }}
+              onClick={handleCheckout}
             >
               Add To Cart
             </Button>
