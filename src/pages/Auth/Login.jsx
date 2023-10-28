@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -7,8 +8,52 @@ import Button from "@mui/material/Button";
 import "@/assets/css/TextField.css";
 import "@/assets/css/Login.css";
 import "@/assets/css/Root.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+import useAuth from "@/hooks/useAuth";
 
 export default function Login() {
+  const { login } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUsername = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const submitLoginForm = () => {
+    axios
+      .post(
+        `${import.meta.env.VITE_BACKEND_API_BASE_URL}/Authentication/Login`,
+        {
+          email: email,
+          password: password,
+        }
+      )
+      .then((result) => {
+        if (result.data.token) {
+          login(result.data);
+          toast.success("Login Success");
+          navigate("/");
+        } else {
+          toast.error("Email dan password anda salah");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // useEffect(() => {
+  //   console.log(email);
+  // }, [email]);
+
   const navigate = useNavigate();
   return (
     <>
@@ -41,13 +86,17 @@ export default function Login() {
               required
               id="outlined-required"
               label="Username"
-              defaultValue=""
+              defaultValue={email}
+              onChange={handleUsername}
+              value={email}
             />
             <TextField
               required
               id="outlined-required"
               label="Password"
-              defaultValue=""
+              defaultValue={password}
+              onChange={handlePassword}
+              value={password}
             />
           </div>
           <div className="form-typography text-primary-color">
@@ -65,6 +114,7 @@ export default function Login() {
             <Button
               variant="contained"
               className="text-primary-color button-primary"
+              onClick={submitLoginForm}
             >
               Login
             </Button>

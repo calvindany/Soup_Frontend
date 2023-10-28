@@ -1,5 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 
+import ProtectedRoutes from "@/utils/ProtectedRoutes";
+
 import Login from "@/pages/Auth/Login";
 import Register from "@/pages/Auth/Register";
 import ResetPassword from "@/pages/Auth/ResetPassword";
@@ -15,6 +17,7 @@ import MyClass from "@/pages/User/MyClass";
 
 export default function Router() {
   const location = useLocation();
+
   return (
     <>
       <Routes location={location} key={location.pathname}>
@@ -34,14 +37,17 @@ export default function Router() {
           element={<EmailConfirmation />}
         />
         <Route exact path="/detailclass/:courseId" element={<DetailClass />} />
-        <Route exact path="/checkout" element={<Checkout />} />
-        <Route exact path="/invoice" element={<Invoice />} />
-        <Route
-          exact
-          path="/detail-invoice/:idInvoice"
-          element={<DetailInvoice />}
-        />
-        <Route exact path="/myclass" element={<MyClass />} />
+
+        <Route element={<ProtectedRoutes />}>
+          <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/invoice" element={<Invoice />} />
+          <Route
+            exact
+            path="/detail-invoice/:idInvoice"
+            element={<DetailInvoice />}
+          />
+          <Route exact path="/myclass" element={<MyClass />} />
+        </Route>
       </Routes>
     </>
   );
