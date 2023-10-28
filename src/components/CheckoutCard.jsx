@@ -17,7 +17,9 @@ export default function CheckoutCard({
   onChangeHandler,
   editDisplay,
 }) {
-  useEffect(() => {}, [isChecked]);
+  // useEffect(() => {
+  //   console.log("aaas12");
+  // }, [isChecked]);
 
   return (
     <>

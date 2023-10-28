@@ -6,18 +6,26 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { GridLoader } from "react-spinners";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 import CheckoutCard from "@/components/CheckoutCard";
 import Footer from "@/components/Footer";
 
-import { data, checkoutData, paymentMethod } from "@/assets/data";
+import { data, paymentMethod } from "@/assets/data";
+
+import useAuth from "@/hooks/useAuth";
 
 import "@/assets/css/Root.css";
 import "@/assets/css/Checkout.css";
 
 export default function Checkout() {
+  const { payload } = useAuth();
+
   // isinya course di checkout yang selected
+  const [checkoutData, setCheckoutData] = useState([]);
   const [checkedCourse, setCheckedCourse] = useState([]);
   const [totalCourse, setTotalCourse] = useState([]);
 
@@ -27,17 +35,38 @@ export default function Checkout() {
 
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
 
-  // Only for debug
+  const getUserIdFromToken = (token) => {
+    const { user_id } = jwtDecode(token);
+    return user_id;
+  };
+
+  useEffect(() => {
+    // console.log(payload);
+    const user_id = getUserIdFromToken(payload);
+    axios
+      .get(
+        `${
+          import.meta.env.VITE_BACKEND_API_BASE_URL
+        }/Transaction/GetCheckout/${user_id}`
+      )
+      .then((result) => {
+        setCheckoutData(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   // useEffect(() => {
   //   console.log(checkedCourse);
   // }, [checkedCourse]);
 
   useEffect(() => {
     let total = 0;
-
     checkoutData.map((checkout) => {
-      if (checkedCourse.includes(checkout.courseId)) {
-        total += checkout.price;
+      // console.log(checkedCourse.includes(parseInt(checkout.courseId)));
+      if (checkedCourse.includes(parseInt(checkout.courseId))) {
+        total += parseInt(checkout.price);
       }
     });
 
@@ -50,15 +79,19 @@ export default function Checkout() {
   }, [checkedCourse]);
 
   function handleCheckCourse(event) {
+    // console.log(event.target.checked);
     if (event.target.checked) {
       if (checkedCourse.includes(parseInt(event.target.value))) {
         const newCheckedCourse = checkedCourse.filter((course) => {
           return course != event.target.value;
         });
+        // console.log(newCheckedCourse);
         setCheckedCourse(newCheckedCourse);
       } else {
         const newCheckedCourse = [...checkedCourse];
         newCheckedCourse.push(parseInt(event.target.value));
+        // console.log(newCheckedCourse);
+
         setCheckedCourse(newCheckedCourse);
       }
     } else {
@@ -66,10 +99,6 @@ export default function Checkout() {
         const newCheckedCourse = checkedCourse.filter((course) => {
           return course != event.target.value;
         });
-        setCheckedCourse(newCheckedCourse);
-      } else {
-        const newCheckedCourse = [...checkedCourse];
-        newCheckedCourse.push(parseInt(event.target.value));
         setCheckedCourse(newCheckedCourse);
       }
     }
@@ -103,22 +132,35 @@ export default function Checkout() {
           Pilih Semua
         </div>
         <Divider />
-        {checkoutData.map((checkout, index) => (
-          <div key={index}>
-            <CheckoutCard
-              image={data[checkout.courseId].image}
-              courseId={checkout.courseId}
-              category={data[checkout.courseId].category}
-              title={data[checkout.courseId].title}
-              schedule={checkout.schedule}
-              price={data[checkout.courseId].price}
-              isChecked={checkedCourse.includes(checkout.courseId)}
-              onChangeHandler={handleCheckCourse}
-              editDisplay={true}
-            />
-            <Divider />
+        {checkoutData.length == 0 ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+              margin: "50px 64px",
+            }}
+          >
+            <GridLoader color="#372B22" />
           </div>
-        ))}
+        ) : (
+          checkoutData.map((checkout, index) => (
+            <div key={index}>
+              <CheckoutCard
+                courseId={checkout.courseId}
+                image={checkout.image}
+                category={checkout.category}
+                title={checkout.title}
+                schedule={checkout.schedule}
+                price={checkout.price}
+                isChecked={checkedCourse.includes(parseInt(checkout.courseId))}
+                onChangeHandler={handleCheckCourse}
+                editDisplay={true}
+              />
+              <Divider />
+            </div>
+          ))
+        )}
       </div>
       <Modal
         open={open}

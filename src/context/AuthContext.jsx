@@ -16,12 +16,14 @@ function getIsLoggedIn(cookie_name) {
 
   const isLoggedIn = payload !== null && payload !== "";
 
-  return isLoggedIn;
+  return { isLoggedIn, payload };
 }
 
 export function AuthProvider({ children }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(getIsLoggedIn("payload"));
-  const [payload, setPayload] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    getIsLoggedIn("payload").isLoggedIn
+  );
+  const [payload, setPayload] = useState(getIsLoggedIn("payload").payload);
 
   // useEffect(() => {
   //   console.log(isLoggedIn);

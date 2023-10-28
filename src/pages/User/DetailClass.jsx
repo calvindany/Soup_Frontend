@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { useParams, useLocation } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import toast from "react-hot-toast";
 
 import ListCourse from "@/components/ListCourse";
 import Footer from "@/components/Footer";
@@ -20,7 +21,6 @@ import { GenerateOneWeekDate } from "@/utils/GenerateDate";
 import useAuth from "@/hooks/useAuth";
 
 import "@/assets/css/DetailClass.css";
-import toast from "react-hot-toast";
 
 export default function DetailClass() {
   const { payload } = useAuth();
