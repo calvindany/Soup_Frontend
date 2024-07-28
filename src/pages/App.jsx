@@ -1,5 +1,5 @@
 import Router from "@/routes/Router";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/Layout/NavBar";
 import { Toaster } from "react-hot-toast";
 export default function App() {
   const toastStyle = {

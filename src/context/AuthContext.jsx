@@ -25,10 +25,6 @@ export function AuthProvider({ children }) {
   );
   const [payload, setPayload] = useState(getIsLoggedIn("payload").payload);
 
-  // useEffect(() => {
-  //   console.log(isLoggedIn);
-  // }, [isLoggedIn]);
-
   const login = (payload) => {
     setIsLoggedIn(true);
 

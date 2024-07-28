@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-import BreadcrumbsCustom from "@/components/BreadCrumbs";
+import BreadcrumbsCustom from "@/components/UI/BreadCrumbs";
 
 import { invoiceData, detailInvoiceData } from "@/assets/data";
 
@@ -53,9 +53,8 @@ export default function DetailInvoice() {
       {idInvoice}
     </Link>,
   ];
-  // useEffect(() => {
-  //   console.log(detailInvoiceData);
-  // });
+
+  
   return (
     <>
       <div className="invoiceContainer">

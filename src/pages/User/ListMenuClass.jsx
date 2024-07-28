@@ -5,9 +5,9 @@ import axios from "axios";
 
 import BannerListClass from "@/assets/img/banner-list-class.png";
 
-import Banner from "@/components/Banner";
-import ListCourse from "@/components/ListCourse";
-import Footer from "@/components/Footer";
+import Banner from "@/components/UI/Banner";
+import ListCourse from "@/components/Feature/ListCourse";
+import Footer from "@/components/Layout/Footer";
 
 import "@/assets/css/Root.css";
 import "@/assets/css/ListMenuClass.css";
@@ -31,14 +31,9 @@ export default function ListMenuClass() {
       )
       .then((result) => {
         setCategoryInformation(result.data);
-        // console.log(result.data);
       })
       .catch((err) => console.log(err));
   }, []);
-
-  // useEffect(() => {
-  //   console.log(categoryInformation);
-  // }, [categoryInformation]);
 
   return (
     <>

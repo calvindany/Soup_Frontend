@@ -13,8 +13,8 @@ import { useParams, useLocation } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import toast from "react-hot-toast";
 
-import ListCourse from "@/components/ListCourse";
-import Footer from "@/components/Footer";
+import ListCourse from "@/components/Feature/ListCourse";
+import Footer from "@/components/Layout/Footer";
 
 import { GenerateOneWeekDate } from "@/utils/GenerateDate";
 
@@ -73,7 +73,6 @@ export default function DetailClass() {
       )
       .then((result) => {
         setDetailCourseInformation(result.data);
-        // console.log(result.data);
       })
       .catch((err) => {
         console.log(err);

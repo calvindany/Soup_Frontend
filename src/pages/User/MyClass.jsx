@@ -1,4 +1,4 @@
-import CheckoutCard from "@/components/CheckoutCard";
+import CheckoutCard from "@/components/UI/CheckoutCard";
 
 import { myClassData } from "@/assets/data";
 

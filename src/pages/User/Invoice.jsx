@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import BreadcrumbsCustom from "@/components/BreadCrumbs";
+import BreadcrumbsCustom from "@/components/UI/BreadCrumbs";
 
 import { invoiceData } from "@/assets/data";
 

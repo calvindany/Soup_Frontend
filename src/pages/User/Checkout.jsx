@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-import CheckoutCard from "@/components/CheckoutCard";
-import Footer from "@/components/Footer";
+import CheckoutCard from "@/components/UI/CheckoutCard";
+import Footer from "@/components/Layout/Footer";
 
 import { data, paymentMethod } from "@/assets/data";
 
@@ -41,7 +41,6 @@ export default function Checkout() {
   };
 
   useEffect(() => {
-    // console.log(payload);
     const user_id = getUserIdFromToken(payload);
     axios
       .get(
@@ -57,14 +56,9 @@ export default function Checkout() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   console.log(checkedCourse);
-  // }, [checkedCourse]);
-
   useEffect(() => {
     let total = 0;
     checkoutData.map((checkout) => {
-      // console.log(checkedCourse.includes(parseInt(checkout.courseId)));
       if (checkedCourse.includes(parseInt(checkout.courseId))) {
         total += parseInt(checkout.price);
       }
@@ -79,18 +73,15 @@ export default function Checkout() {
   }, [checkedCourse]);
 
   function handleCheckCourse(event) {
-    // console.log(event.target.checked);
     if (event.target.checked) {
       if (checkedCourse.includes(parseInt(event.target.value))) {
         const newCheckedCourse = checkedCourse.filter((course) => {
           return course != event.target.value;
         });
-        // console.log(newCheckedCourse);
         setCheckedCourse(newCheckedCourse);
       } else {
         const newCheckedCourse = [...checkedCourse];
         newCheckedCourse.push(parseInt(event.target.value));
-        // console.log(newCheckedCourse);
 
         setCheckedCourse(newCheckedCourse);
       }

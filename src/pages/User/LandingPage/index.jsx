@@ -5,10 +5,10 @@ import { GridLoader } from "react-spinners";
 import BannerLanding1 from "@/assets/img/banner-landing.png";
 import BannerLanding2 from "@/assets/img/banner-landing2.png";
 
-import BannerLanding from "@/components/Banner";
-import CategoryCard from "@/components/CategoryCard";
-import ListCourse from "../../components/ListCourse";
-import Footer from "@/components/Footer";
+import BannerLanding from "@/components/UI/Banner";
+import CategoryCard from "@/components/UI/CategoryCard";
+import ListCourse from "@/components/Feature/ListCourse";
+import Footer from "@/components/Layout/Footer";
 
 import "@/assets/css/Landing.css";
 import "@/assets/css/Root.css";
@@ -22,7 +22,6 @@ export default function LandingPage() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_API_BASE_URL}/Courses`)
       .then((result) => {
-        // console.log(result.data);
         setCourses(result.data);
       })
       .catch((err) => console.log(err));
@@ -35,10 +34,6 @@ export default function LandingPage() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  // useEffect(() => {
-  //   console.log(courses);
-  // }, [courses]);
 
   return (
     <>

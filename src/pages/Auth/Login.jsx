@@ -50,10 +50,6 @@ export default function Login() {
       });
   };
 
-  // useEffect(() => {
-  //   console.log(email);
-  // }, [email]);
-
   const navigate = useNavigate();
   return (
     <>

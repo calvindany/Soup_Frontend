@@ -19,6 +19,6 @@ export function GenerateOneWeekDate() {
     for(let i = 0; i < 7; i++){
         schedule.push(FormatDate(AddDay(Date.now(), i)))
     }
-    // console.log(schedule);
+
     return schedule;
 }
